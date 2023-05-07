@@ -1,0 +1,14 @@
+1: request get -> X[]
+2: organizar dados
+for i in X
+  if i.media_type == video
+	tipo <- "video"
+	imagem <- i.thumbnail_url
+	url <- i.url
+  else
+	tipo <- "image"
+	imagem <- i.url
+	url <- i.hdurl
+  title <- i.title
+  expl <- i.explanation
+  data <- LocalDate.parse(i.date)
