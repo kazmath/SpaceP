@@ -4,12 +4,12 @@
 - [x] Maven
 - [x] Postman / Insomnia
 - [ ] JPA / Hibernate
-- [ ] Flyway
-- [ ] MySQL Connector
+- [x] Flyway
+- [x] MySQL Connector
 - [ ] 3 tipos de padrões de projeto
   - [x] M.V.C.
   - [ ] Builder
-  - [ ] Adapter
+  - [ ] Factor Method
 - [x] consumir 1 serviço externo
   - ???
 - [ ] guardar historico (Banco de dados)
