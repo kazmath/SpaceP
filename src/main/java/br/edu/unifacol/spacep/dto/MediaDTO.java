@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @Builder
 @AllArgsConstructor
-public class ImagesDTO {
+public class MediaDTO {
 	
 	private String tipo;
 	private String url;

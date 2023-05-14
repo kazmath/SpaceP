@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 // import org.springframework.web.client.RestTemplate;
 
-import br.edu.unifacol.spacep.dto.ImagesDTO;
-import br.edu.unifacol.spacep.service.ImgService;
+import br.edu.unifacol.spacep.dto.MediaDTO;
+import br.edu.unifacol.spacep.service.MediaService;
 
 @RestController
 @RequestMapping("/image")
 public class SpacePController {
 	
     @Autowired
-    private ImgService service;
+    private MediaService service;
 
 	@PostMapping
-	public ResponseEntity<ImagesDTO> getImages(@RequestBody ImagesDTO imagesDTO) {
-		ImagesDTO nasaAPOD = service.exibirImagem(imagesDTO); // Astronomy Picture of the Day
+	public ResponseEntity<MediaDTO> getImages(@RequestBody MediaDTO imagesDTO) {
+		MediaDTO nasaAPOD = service.exibirImagem(imagesDTO); // Astronomy Picture of the Day
 		return new ResponseEntity<>(nasaAPOD, HttpStatus.OK);
 	}
 	// public ImagesDTO getImages(@PathVariable String test) {
