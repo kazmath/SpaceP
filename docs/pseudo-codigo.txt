@@ -1,17 +1,15 @@
-1: request get -> X[]
+1: request requests[] <- get
 2: organizar dados
-for i in X
-  if i.media_type == video
-	tipo <- "video"
-	imagem <- i.thumbnail_url
-	url <- i.url
-  else
-	tipo <- "image"
-	imagem <- i.url
-	url <- i.hdurl
-  title <- i.title
-  expl <- i.explanation
-  data <- LocalDate.parse(i.date)
+	for i in requests
+		MediaDTO.builder()
+			.title(i.title)
+			.type(i.media_type)
+			.url(i.url)
+			.expl(i.explanation)
+			.date(LocalDate.parse(i.date))
+			.image(i.hdurl) 				// só para imagem
+			.thumbnail(i.thumbnail_url)	// só para vídeo
+			.build()
 3: adicionar ao banco de dados
   ??????????
 4: exibir imagens
