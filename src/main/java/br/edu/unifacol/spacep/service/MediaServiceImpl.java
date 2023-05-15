@@ -14,12 +14,12 @@ public class MediaServiceImpl implements MediaService {
 	private MediaRepository repository; // repository.save(...)
 
 	@Override
-	public MediaDTO exibirImagem(MediaDTO imagemdto) {
-		String url = "https://example.org/";
+	public MediaDTO[] exibirImagem(String url) {
+		// String url = "https://example.org/";
 		RestTemplate restTemplate = new RestTemplate();
-		MediaDTO response = restTemplate.getForObject(url, MediaDTO.class);
+		MediaDTO[] response = restTemplate.getForObject(url, MediaDTO[].class);
 
 		return response;
 	}
-	
+
 }
