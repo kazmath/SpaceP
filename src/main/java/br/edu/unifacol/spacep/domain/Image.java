@@ -14,10 +14,25 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "media")
-public class Media {
+@Table(name = "imagem")
+public class Image {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long media;
+	private Long id;
+
+	@Column(name = "title")
+	private String title;
+
+	@Column(name = "media_type")
+	private String media_type;
+
+	@Column(name = "url")
+	private String url;
+	
+	@Column(name = "explanation")
+	private String explanation;
+	
+	@Column(name = "date")
+	private LocalDate date;
 
 }

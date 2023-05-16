@@ -12,12 +12,12 @@
 			.build()
 3: adicionar ao banco de dados
   ??????????
-4: exibir imagens
-  * implementar método GET no código
-	* ler bando de dados
-	  fullHTML <- null
-	  for i in db:
-	    nodeHTML <- gerarHTML(i)
-		fullHTML <- fullHTML + nodeHTML
-	* printar html na tela (navegador)
-	  System.out.println(fullHTML)
+// 4: exibir imagens
+//   * implementar método GET no código
+// 	* ler bando de dados
+// 	  fullHTML <- null
+// 	  for i in db:
+// 	    nodeHTML <- gerarHTML(i)
+// 		fullHTML <- fullHTML + nodeHTML
+// 	* printar html na tela (navegador)
+// 	  System.out.println(fullHTML)
