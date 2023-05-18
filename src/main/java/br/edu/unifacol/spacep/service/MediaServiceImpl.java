@@ -3,9 +3,11 @@ package br.edu.unifacol.spacep.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import java.lang.NullPointerException;
 
 import br.edu.unifacol.spacep.dto.MediaDTO;
 import br.edu.unifacol.spacep.repository.MediaRepository;
+import br.edu.unifacol.spacep.utils.FactoryMedia;
 
 @Service
 public class MediaServiceImpl implements MediaService {
@@ -14,11 +16,18 @@ public class MediaServiceImpl implements MediaService {
 	private MediaRepository repository; // repository.save(...)
 
 	@Override
-	public MediaDTO[] exibirImagem(String url) {
+	public MediaDTO[] saveMedia(String url) {
 		// String url = "https://example.org/";
 		RestTemplate restTemplate = new RestTemplate();
 		MediaDTO[] response = restTemplate.getForObject(url, MediaDTO[].class);
 
+		if (response == null) {
+			throw new NullPointerException("response was null");
+		}
+		
+		for (MediaDTO mediaDTO : response) {
+			repository.save(FactoryMedia.build(mediaDTO));
+		}
 		return response;
 	}
 
