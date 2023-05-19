@@ -1,0 +1,13 @@
+# Versionamento no flyway
+#  <V><ano><mês><dia><hora_24h><minuto>.<versão>_<atualização>__<descrição do script>.sql
+
+spring:
+  datasource:
+    url: ${DATASOURCE_URL}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
+    driver-class-name: com.mysql.jdbc.Driver
+    tomcat:
+      validation-query: SELECT 1
+      test-while-idle: true
+      testOnBorrow: true

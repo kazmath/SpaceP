@@ -3,17 +3,18 @@ package br.edu.unifacol.spacep.utils;
 import java.time.LocalDate;
 
 
-import br.edu.unifacol.spacep.domain.Image;
-import br.edu.unifacol.spacep.domain.Media;
-import br.edu.unifacol.spacep.domain.Video;
+import br.edu.unifacol.spacep.domain.*;
 import br.edu.unifacol.spacep.dto.MediaDTO;
 
 public class FactoryMedia {
 
 	
 	public static Media build(MediaDTO mediaDTO) {
+		// Media media = new Media();
+		
 		Media media = null;
-		if (mediaDTO.getMedia_type() == "image") {
+		if (mediaDTO.getMedia_type().equals("image")) {
+			System.out.println("asofasf");
 			media = Media.builder()
 				.title(mediaDTO.getTitle())
 				.media_type(mediaDTO.getMedia_type())
@@ -23,7 +24,7 @@ public class FactoryMedia {
 				.image(new Image(mediaDTO.getHdurl()))
 				.build();
 
-		} else if (mediaDTO.getMedia_type() == "video") {
+		} else if (mediaDTO.getMedia_type().equals("video")) {
 			media = Media.builder()
 				.title(mediaDTO.getTitle())
 				.media_type(mediaDTO.getMedia_type())

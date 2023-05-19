@@ -17,12 +17,13 @@ public class SpacePController {
 	private MediaService service;
 
 	@GetMapping("/all")
-	public ResponseEntity<MediaDTO[]> getImagesAll() {
+	public ResponseEntity<MediaDTO[]> getImagesAll() throws Exception {
 		// Astronomy Picture of the Day
-		MediaDTO[] nasaAPOD = service.saveMedia("https://api.nasa.gov/planetary/apod?api_key=**API_KEY**&start_date=2023-04-14&thumbs=True");
-		// return new ResponseEntity<>(nasaAPOD, HttpStatus.OK);
+		MediaDTO[] nasaAPOD;
+		nasaAPOD = service.saveMedia("https://api.nasa.gov/planetary/apod?api_key=**API_KEY**&start_date=2023-05-11&thumbs=True");
 		return ResponseEntity
 			.ok(nasaAPOD);
+		// return new ResponseEntity<>(nasaAPOD, HttpStatus.OK);
 	}
 
 	// @GetMapping

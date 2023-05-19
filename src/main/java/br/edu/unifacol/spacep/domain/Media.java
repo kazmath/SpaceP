@@ -11,41 +11,53 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 // import javax.persistence.*;
 
 @Entity
+@AllArgsConstructor
+@RequiredArgsConstructor
+@NoArgsConstructor
 @Data
 @Builder
 @Table(name = "media")
 public class Media {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long media;
+	private Long media_id;
 
+	@NonNull
 	@Column(name = "title")
 	private String title;
 
+	@NonNull
 	@Column(name = "media_type")
 	private String media_type;
 
+	@NonNull
 	@Column(name = "url")
 	private String url;
 	
+	@NonNull
 	@Column(name = "explanation")
 	private String explanation;
 	
+	@NonNull
 	@Column(name = "date")
 	private LocalDate date;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "pk_video", referencedColumnName = "id")
+	@JoinColumn(name = "pk_video", referencedColumnName = "video_id")
 	private Video video;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "pk_image", referencedColumnName = "id")
+	@JoinColumn(name = "pk_image", referencedColumnName = "image_id")
 	private Image image;
 
 }
