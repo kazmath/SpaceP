@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 // import AlgumaException;
 
+import br.edu.unifacol.spacep.domain.Media;
 import br.edu.unifacol.spacep.dto.MediaDTO;
 import br.edu.unifacol.spacep.repository.MediaRepository;
 import br.edu.unifacol.spacep.utils.FactoryMedia;
@@ -26,7 +27,8 @@ public class MediaServiceImpl implements MediaService {
 		}
 		
 		for (MediaDTO mediaDTO : response) {
-			repository.save(FactoryMedia.build(mediaDTO));
+			Media media = FactoryMedia.build(mediaDTO);
+			repository.save(media);
 		}
 		return response;
 	}

@@ -20,7 +20,7 @@ public class SpacePController {
 	public ResponseEntity<MediaDTO[]> getImagesAll() throws Exception {
 		// Astronomy Picture of the Day
 		MediaDTO[] nasaAPOD;
-		nasaAPOD = service.saveMedia("https://api.nasa.gov/planetary/apod?api_key=**API_KEY**&start_date=2023-05-11&thumbs=True");
+		nasaAPOD = service.saveMedia("https://api.nasa.gov/planetary/apod?api_key=**API_KEY**&start_date=2023-05-12&thumbs=True");
 		return ResponseEntity
 			.ok(nasaAPOD);
 		// return new ResponseEntity<>(nasaAPOD, HttpStatus.OK);

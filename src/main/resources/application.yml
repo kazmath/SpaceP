@@ -11,3 +11,9 @@ spring:
       validation-query: SELECT 1
       test-while-idle: true
       testOnBorrow: true
+  flyway:
+    user: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
+    schemas:
+    - spacep
+    create-schemas: true

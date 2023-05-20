@@ -14,7 +14,6 @@ public class FactoryMedia {
 		
 		Media media = null;
 		if (mediaDTO.getMedia_type().equals("image")) {
-			System.out.println("asofasf");
 			media = Media.builder()
 				.title(mediaDTO.getTitle())
 				.media_type(mediaDTO.getMedia_type())
