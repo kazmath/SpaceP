@@ -37,11 +37,10 @@ public class MediaServiceImpl implements MediaService {
 
 		for (MediaDTO mediaDTO : response) {
 			Media media = FactoryMedia.build(mediaDTO);
-
-			//TODO: Evitar repetição
-			System.out.println(repository.findByDate(LocalDate.parse(mediaDTO.getDate())));
 			
-			repository.save(media);
+			if (repository.findByDate(media.getDate()).size() == 0) {
+				repository.save(media);
+			}
 		}
 		return response;
 	}

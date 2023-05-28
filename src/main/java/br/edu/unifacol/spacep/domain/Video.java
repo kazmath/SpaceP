@@ -31,4 +31,9 @@ public class Video {
 	@OneToOne(mappedBy = "video")
     private Media media;
 
+	@Override
+	public String toString() {
+		return "Video [video_id=" + video_id + ", thumbnail=" + thumbnail + "]";
+	}
+
 }

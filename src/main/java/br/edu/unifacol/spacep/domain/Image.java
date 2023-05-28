@@ -31,4 +31,9 @@ public class Image {
 	@OneToOne(mappedBy = "image")
     private Media media;
 
+	@Override
+	public String toString() {
+		return "Image [image_id=" + image_id + ", hdurl=" + hdurl + "]";
+	}
+
 }

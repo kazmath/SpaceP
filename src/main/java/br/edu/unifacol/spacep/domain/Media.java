@@ -32,6 +32,7 @@ import lombok.NonNull;
 public class Media {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long media_id;
 
 	@NonNull
@@ -62,5 +63,20 @@ public class Media {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "pk_image", referencedColumnName = "image_id")
 	private Image image;
+
+	@Override
+	public String toString() {
+		return
+			"Media [" +
+				"media_id=" + media_id +
+				", title=" + title +
+				", media_type=" + media_type +
+				", url=" + url +
+				", explanation=" + explanation.substring(0, 47)+ "..." +
+				", date=" + date +
+				", video=" + video +
+				", image=" + image +
+			"]";
+	}
 
 }

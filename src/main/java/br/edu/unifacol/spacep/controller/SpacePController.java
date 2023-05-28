@@ -10,7 +10,7 @@ import br.edu.unifacol.spacep.dto.MediaDTO;
 import br.edu.unifacol.spacep.service.MediaService;
 
 @RestController
-@RequestMapping("/images")
+@RequestMapping("/media")
 public class SpacePController {
 
 	@Autowired
@@ -18,7 +18,6 @@ public class SpacePController {
 
 	@GetMapping("/save")
 	public ResponseEntity<MediaDTO[]> getImagesAll() throws Exception {
-		// Astronomy Picture of the Day
 		MediaDTO[] nasaAPOD;
 	
 		nasaAPOD = service.saveMedia();
