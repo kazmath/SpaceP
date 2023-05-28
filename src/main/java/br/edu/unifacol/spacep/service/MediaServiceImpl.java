@@ -27,26 +27,26 @@ public class MediaServiceImpl implements MediaService {
 	public List<MediaDTO> saveMedia() throws Exception {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		String start_date = LocalDate.now().minusDays(6).format(formatter);
-		String url = Constants.BASE_URL			+ "?" +
-			"api_key="		+ Constants.API_KEY	+ "&" +
-			"start_date="	+ start_date		+ "&" +
-			"thumbs="		+ "True";
+		String url = Constants.BASE_URL + "?" +
+				"api_key=" + Constants.API_KEY + "&" +
+				"start_date=" + start_date + "&" +
+				"thumbs=" + "True";
 
 		RestTemplate restTemplate = new RestTemplate();
 
-		ParameterizedTypeReference<ArrayList<MediaDTO>> typeRef = new ParameterizedTypeReference<ArrayList<MediaDTO>>() {};
-		
-		// List<MediaDTO> response = restTemplate.getForObject(url, typeRef.getType().getClass());
+		ParameterizedTypeReference<ArrayList<MediaDTO>> typeRef = new ParameterizedTypeReference<ArrayList<MediaDTO>>() {
+		};
+
 		ArrayList<MediaDTO> response = restTemplate.exchange(RequestEntity.get(url).build(), typeRef).getBody();
 		ArrayList<MediaDTO> responseOut = new ArrayList<MediaDTO>(response);
-		
+
 		if (response == null) {
 			throw new Exception("response was null");
 		}
 
 		for (MediaDTO mediaDTO : response) {
 			Media media = FactoryMedia.build(mediaDTO);
-			
+
 			if (repository.findByDate(media.getDate()).size() == 0) {
 				repository.save(media);
 			} else {

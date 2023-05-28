@@ -41,4 +41,4 @@
 - [x] Alterar "Media[]" para "MediaDTO" na lista.
 - [x] Fazer a API atualizar a data para obter a data atual do dia para a requisição.
 - [x] Alterar a extensão do link da API nos Utils, assim como a foto que foi enviada.
-- [ ] Remover linhas extras nos arquivos e comentários desnecessários.
+- [x] Remover linhas extras nos arquivos e comentários desnecessários.

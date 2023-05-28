@@ -1,17 +1,12 @@
 package br.edu.unifacol.spacep.utils;
 
 import java.time.LocalDate;
-
-
 import br.edu.unifacol.spacep.domain.*;
 import br.edu.unifacol.spacep.dto.MediaDTO;
 
 public class FactoryMedia {
 
-	
 	public static Media build(MediaDTO mediaDTO) {
-		// Media media = new Media();
-		
 		Media media = null;
 		if (mediaDTO.getMedia_type().equals("image")) {
 			media = Media.builder()

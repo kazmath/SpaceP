@@ -20,8 +20,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-// import javax.persistence.*;
-
 @Entity
 @AllArgsConstructor
 @RequiredArgsConstructor
@@ -46,11 +44,11 @@ public class Media {
 	@NonNull
 	@Column(name = "url")
 	private String url;
-	
+
 	@NonNull
 	@Column(name = "explanation")
 	private String explanation;
-	
+
 	@NonNull
 	@Column(name = "date")
 	@Temporal(TemporalType.DATE)
@@ -66,17 +64,16 @@ public class Media {
 
 	@Override
 	public String toString() {
-		return
-			"Media [" +
+		return "Media [" +
 				"media_id=" + media_id +
 				", title=" + title +
 				", media_type=" + media_type +
 				", url=" + url +
-				", explanation=" + explanation.substring(0, 47)+ "..." +
+				", explanation=" + explanation.substring(0, 47) + "..." +
 				", date=" + date +
 				", video=" + video +
 				", image=" + image +
-			"]";
+				"]";
 	}
 
 }

@@ -1,13 +1,11 @@
 package br.edu.unifacol.spacep.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import br.edu.unifacol.spacep.dto.MediaDTO;
 import br.edu.unifacol.spacep.service.MediaService;
 
@@ -24,21 +22,4 @@ public class SpacePController {
 		return ResponseEntity.ok(nasaAPOD);
 	}
 
-	// @GetMapping
-	// public MediaDTO getImages() {
-	// MediaDTO nasaAPOD = this.repository; // Astronomy Picture of the Day
-	// return nasaAPOD;
-	// }
-
-	@GetMapping("/hello")
-	public String welcome() {
-		return "Hello World";
-	}
-
-	// public ImagesDTO getImages(@PathVariable String test) {
-	// String url = "https://www.example.org/";
-	// RestTemplate restTemplate = new RestTemplate();
-	// ImagesDTO response = restTemplate.getForObject(url, ImagesDTO.class);
-	// return response;
-	// }
 }

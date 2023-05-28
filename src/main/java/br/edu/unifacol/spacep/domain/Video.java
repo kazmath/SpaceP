@@ -12,8 +12,6 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-// import javax.persistence.*;
-
 @Entity
 @NoArgsConstructor
 @RequiredArgsConstructor
@@ -29,7 +27,7 @@ public class Video {
 	private String thumbnail;
 
 	@OneToOne(mappedBy = "video")
-    private Media media;
+	private Media media;
 
 	@Override
 	public String toString() {
