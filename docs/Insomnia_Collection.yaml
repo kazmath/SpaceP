@@ -1,0 +1,115 @@
+_type: export
+__export_format: 4
+__export_date: 2023-05-28T22:02:59.154Z
+__export_source: insomnia.desktop.app:v2023.1.0
+resources:
+  - _id: req_fa74a443abf541dfa1d04226bfc62153
+    parentId: wrk_891cb4afe1ef48aa8bcda998d19deb1e
+    modified: 1685310351741
+    created: 1685309530984
+    url: localhost:8080/media/history
+    name: Criar relatório dos últimos 7 dias
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1685309530984
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_891cb4afe1ef48aa8bcda998d19deb1e
+    parentId: null
+    modified: 1685311254062
+    created: 1685309009562
+    name: SpaceP Collection
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_32156ce95bdc40c6bae78f0eaad4ee0c
+    parentId: wrk_891cb4afe1ef48aa8bcda998d19deb1e
+    modified: 1685310334001
+    created: 1685309662101
+    url: localhost:8080/media/save
+    name: Salvar imagens
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1685309271799
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_48d7151bc89141f085f7bdbc89702e84
+    parentId: wrk_891cb4afe1ef48aa8bcda998d19deb1e
+    modified: 1685309578188
+    created: 1685309012614
+    url: https://api.nasa.gov/planetary/apod
+    name: Request Para a Nasa
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - id: pair_a4311231cb2047dfa1492f2e767bce32
+        name: thumbs
+        value: "True"
+        description: ""
+      - id: pair_e74c780514d945a78c454f6e828e368f
+        name: start_date
+        value: 2023-05-01
+        description: ""
+    headers: []
+    authentication:
+      type: apikey
+      disabled: false
+      key: api_key
+      value: **API_KEY**
+      addTo: queryParams
+    metaSortKey: -1685309012614
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_9784915e363c3bd0c0265578873784be46989634
+    parentId: wrk_891cb4afe1ef48aa8bcda998d19deb1e
+    modified: 1685310742571
+    created: 1685309009593
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: {}
+    color: null
+    isPrivate: false
+    metaSortKey: 1685309009593
+    _type: environment
+  - _id: jar_9784915e363c3bd0c0265578873784be46989634
+    parentId: wrk_891cb4afe1ef48aa8bcda998d19deb1e
+    modified: 1685309009607
+    created: 1685309009607
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_ab437bab895143d596ff4706c013924c
+    parentId: wrk_891cb4afe1ef48aa8bcda998d19deb1e
+    modified: 1685309009565
+    created: 1685309009565
+    fileName: My Collection
+    contents: ""
+    contentType: yaml
+    _type: api_spec
