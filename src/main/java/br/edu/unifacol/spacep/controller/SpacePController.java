@@ -1,5 +1,7 @@
 package br.edu.unifacol.spacep.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,12 +19,9 @@ public class SpacePController {
 	private MediaService service;
 
 	@GetMapping("/save")
-	public ResponseEntity<MediaDTO[]> getImagesAll() throws Exception {
-		MediaDTO[] nasaAPOD;
-	
-		nasaAPOD = service.saveMedia();
-		return ResponseEntity
-			.ok(nasaAPOD);
+	public ResponseEntity<List<MediaDTO>> getImagesAll() throws Exception {
+		List<MediaDTO> nasaAPOD = service.saveMedia();
+		return ResponseEntity.ok(nasaAPOD);
 	}
 
 	// @GetMapping

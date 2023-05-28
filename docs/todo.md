@@ -38,7 +38,7 @@
 - [x] constante dentro da implementação do service.
 - [ ] Criar endpoint da API para retornar o dia e gerar relatório dos últimos 7 dias, assim como o endpoint para as 7 últimas imagens.
 - [x] Ao apresentar o projeto, se não for possível fazer a requisição, exibir "ZERO".
-- [ ] Alterar "Media[]" para "MediaDTO" na lista.
+- [x] Alterar "Media[]" para "MediaDTO" na lista.
 - [x] Fazer a API atualizar a data para obter a data atual do dia para a requisição.
-- [ ] Alterar a extensão do link da API nos Utils, assim como a foto que foi enviada.
+- [x] Alterar a extensão do link da API nos Utils, assim como a foto que foi enviada.
 - [ ] Remover linhas extras nos arquivos e comentários desnecessários.
