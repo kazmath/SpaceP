@@ -10,9 +10,11 @@
 	</parent>
 	<groupId>br.edu.unifacol</groupId>
 	<artifactId>spacep</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>spacep</name>
-	<description>Demo project for Spring Boot</description>
+	<description>
+		Wrapper para a API Astronomy Picture Of the Day do site "https://api.nasa.gov/planetary/apod"
+	</description>
 	<properties>
 		<java.version>18</java.version>
 	</properties>
