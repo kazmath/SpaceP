@@ -1,14 +1,14 @@
 _type: export
 __export_format: 4
-__export_date: 2023-05-28T22:02:59.154Z
+__export_date: 2023-05-29T01:36:05.274Z
 __export_source: insomnia.desktop.app:v2023.1.0
 resources:
   - _id: req_fa74a443abf541dfa1d04226bfc62153
     parentId: wrk_891cb4afe1ef48aa8bcda998d19deb1e
-    modified: 1685310351741
+    modified: 1685323998985
     created: 1685309530984
     url: localhost:8080/media/history
-    name: Criar relatório dos últimos 7 dias
+    name: Mostrar relatório dos últimos 7 dias
     description: ""
     method: GET
     body: {}
@@ -32,12 +32,33 @@ resources:
     description: ""
     scope: collection
     _type: workspace
+  - _id: req_3631ae6e77834202b903b665ffadd198
+    parentId: wrk_891cb4afe1ef48aa8bcda998d19deb1e
+    modified: 1685324005921
+    created: 1685314725674
+    url: localhost:8080/media/today
+    name: Mostrar e salvar media do dia
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1685309401391.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
   - _id: req_32156ce95bdc40c6bae78f0eaad4ee0c
     parentId: wrk_891cb4afe1ef48aa8bcda998d19deb1e
-    modified: 1685310334001
+    modified: 1685322478034
     created: 1685309662101
     url: localhost:8080/media/save
-    name: Salvar imagens
+    name: Salvar medias dos 7 últimos dias
     description: ""
     method: GET
     body: {}
@@ -55,7 +76,7 @@ resources:
     _type: request
   - _id: req_48d7151bc89141f085f7bdbc89702e84
     parentId: wrk_891cb4afe1ef48aa8bcda998d19deb1e
-    modified: 1685309578188
+    modified: 1685321932664
     created: 1685309012614
     url: https://api.nasa.gov/planetary/apod
     name: Request Para a Nasa
@@ -71,6 +92,7 @@ resources:
         name: start_date
         value: 2023-05-01
         description: ""
+        disabled: false
     headers: []
     authentication:
       type: apikey
