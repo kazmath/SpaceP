@@ -1,5 +1,7 @@
 package br.edu.unifacol.spacep.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,6 +28,7 @@ public class Video {
 	@Column(name = "thumbnail")
 	private String thumbnail;
 
+	@JsonIgnore
 	@OneToOne(mappedBy = "video")
 	private Media media;
 

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
@@ -32,12 +33,9 @@ public class MediaServiceImpl implements MediaService {
 				"start_date=" + start_date + "&" +
 				"thumbs=" + "True";
 
-		RestTemplate restTemplate = new RestTemplate();
-
-		ParameterizedTypeReference<ArrayList<MediaDTO>> typeRef = new ParameterizedTypeReference<ArrayList<MediaDTO>>() {
-		};
-
-		ArrayList<MediaDTO> response = restTemplate.exchange(RequestEntity.get(url).build(), typeRef).getBody();
+		ParameterizedTypeReference<ArrayList<MediaDTO>> typeRef = new ParameterizedTypeReference<ArrayList<MediaDTO>>() {};
+				
+		ArrayList<MediaDTO> response = new RestTemplate().exchange(RequestEntity.get(url).build(), typeRef).getBody();
 		ArrayList<MediaDTO> responseOut = new ArrayList<MediaDTO>(response);
 
 		if (response == null) {
@@ -54,6 +52,49 @@ public class MediaServiceImpl implements MediaService {
 			}
 		}
 		return responseOut;
+	}
+
+	@Override
+	public MediaDTO saveAndGetToday() throws Exception {
+		String url = Constants.BASE_URL + "?" +
+				"api_key=" + Constants.API_KEY + "&" +
+				"thumbs=" + "True";
+
+		MediaDTO response = new RestTemplate().exchange(RequestEntity.get(url).build(), MediaDTO.class).getBody();
+
+		if (response == null) {
+			throw new Exception("response was null");
+		}
+
+		Media media = FactoryMedia.build(response);
+
+		if (repository.findByDate(media.getDate()).size() == 0) {
+			repository.save(media);
+		}
+
+		return response;
+	}
+
+	@Override
+	public List<Media> getHistory() {
+		ArrayList<Media> output = new ArrayList<Media>();
+		
+		Stream<LocalDate> last7Days = LocalDate.now()
+			.minusDays(6)
+			.datesUntil(
+				LocalDate.now().plusDays(1)
+			);
+
+		last7Days.iterator().forEachRemaining((day) -> {
+			// Media dayMedia = null;
+			if (repository.findByDate(day).size() != 0) {
+				output.add(repository.findByDate(day).get(0));
+			} else {
+				output.add(null);
+			}
+		});
+
+		return output;
 	}
 
 }
