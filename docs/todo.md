@@ -26,7 +26,7 @@
 
 ### Link
 
-[https://api.nasa.gov/planetary/apod](https://api.nasa.gov/planetary/apod?api_key=**API_KEY**&start_date=2023-04-14&thumbs=True)
+[https://api.nasa.gov/planetary/apod](https://api.nasa.gov/planetary/apod?api_key=**API_KEY**&start_date=2023-04-14&thumbs=True) <!-- Censurada -->
 
 ---
 

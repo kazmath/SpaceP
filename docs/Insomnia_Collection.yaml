@@ -98,7 +98,7 @@ resources:
       type: apikey
       disabled: false
       key: api_key
-      value: **API_KEY**
+      value: **API_KEY** # Censurada
       addTo: queryParams
     metaSortKey: -1685309012614
     isPrivate: false
