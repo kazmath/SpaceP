@@ -19,15 +19,15 @@ public class SpacePController {
 	@Autowired
 	private MediaService service;
 
-	@GetMapping("/save/{API_KEY}")
-	public ResponseEntity<List<MediaDTO>> save(@PathVariable String API_KEY) throws Exception {
-		List<MediaDTO> nasaAPOD = service.saveMedia(API_KEY);
+	@GetMapping("/save/{APIKEY}")
+	public ResponseEntity<List<MediaDTO>> save(@PathVariable String APIKEY) throws Exception {
+		List<MediaDTO> nasaAPOD = service.saveMedia(APIKEY);
 		return ResponseEntity.ok(nasaAPOD);
 	}
 
-	@GetMapping("/today/{API_KEY}")
-	public ResponseEntity<MediaDTO> today(@PathVariable String API_KEY) throws Exception {
-		MediaDTO todayMedia = service.saveAndGetToday(API_KEY);
+	@GetMapping("/today/{APIKEY}")
+	public ResponseEntity<MediaDTO> today(@PathVariable String APIKEY) throws Exception {
+		MediaDTO todayMedia = service.saveAndGetToday(APIKEY);
 		return ResponseEntity.ok(todayMedia);
 	}
 
