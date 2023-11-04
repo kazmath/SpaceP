@@ -25,11 +25,11 @@ public class MediaServiceImpl implements MediaService {
 	private MediaRepository repository; // repository.save(...)
 
 	@Override
-	public List<MediaDTO> saveMedia() throws Exception {
+	public List<MediaDTO> saveMedia(String APIKEY) throws Exception {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		String start_date = LocalDate.now().minusDays(6).format(formatter);
 		String url = Constants.BASE_URL + "?" +
-				"api_key=" + Constants.API_KEY + "&" +
+				"api_key=" + APIKEY + "&" +
 				"start_date=" + start_date + "&" +
 				"thumbs=" + "True";
 
@@ -55,9 +55,9 @@ public class MediaServiceImpl implements MediaService {
 	}
 
 	@Override
-	public MediaDTO saveAndGetToday() throws Exception {
+	public MediaDTO saveAndGetToday(String APIKEY) throws Exception {
 		String url = Constants.BASE_URL + "?" +
-				"api_key=" + Constants.API_KEY + "&" +
+				"api_key=" + APIKEY + "&" +
 				"thumbs=" + "True";
 
 		MediaDTO response = new RestTemplate().exchange(RequestEntity.get(url).build(), MediaDTO.class).getBody();
@@ -77,9 +77,11 @@ public class MediaServiceImpl implements MediaService {
 
 	@Override
 	public List<Media> getHistory() {
-		ArrayList<Media> output = new ArrayList<Media>();
+		List<Media> output = new ArrayList<Media>();
+
+		output = repository.findAll();
 		
-		Stream<LocalDate> last7Days = LocalDate.now()
+		/*Stream<LocalDate> last7Days = LocalDate.now()
 			.minusDays(6)
 			.datesUntil(
 				LocalDate.now().plusDays(1)
@@ -92,7 +94,7 @@ public class MediaServiceImpl implements MediaService {
 			} else {
 				output.add(null);
 			}
-		});
+		});*/
 
 		return output;
 	}
