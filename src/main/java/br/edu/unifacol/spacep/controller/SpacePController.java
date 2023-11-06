@@ -38,5 +38,4 @@ public class SpacePController {
 		return ResponseEntity.ok(history);
 	}
 
-
 }
