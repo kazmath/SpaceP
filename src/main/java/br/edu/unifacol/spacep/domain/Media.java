@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
@@ -46,7 +47,7 @@ public class Media {
 	private String url;
 
 	@NonNull
-	@Column(name = "explanation")
+	@Column(name = "explanation") @Lob
 	private String explanation;
 
 	@NonNull

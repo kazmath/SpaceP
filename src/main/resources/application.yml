@@ -6,14 +6,16 @@ spring:
     url: ${DATASOURCE_URL}
     username: ${DATASOURCE_USERNAME}
     password: ${DATASOURCE_PASSWORD}
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: org.h2.Driver
     tomcat:
       validation-query: SELECT 1
       test-while-idle: true
       testOnBorrow: true
-  flyway:
-    user: ${DATASOURCE_USERNAME}
-    password: ${DATASOURCE_PASSWORD}
-    schemas:
-    - spacep
-    create-schemas: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
